@@ -12,6 +12,7 @@ video.loop = false;
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play Video");
 	video.play()
+	document.querySelector("#volume").textContent = (video.volume *100).toFixed(2) + "%";
 });
 
 // pause button
@@ -57,10 +58,10 @@ if (video.muted) {
 let volumeSlider = document.querySelector("#slider");
 let volumeDisplay = document.querySelector("#volume");
 video.volume = volumeSlider.value / 100;
-volumeDisplay.textContent = video.volume.toFixed(2);
+volumeDisplay.textContent = video.volume.toFixed(2) + "%";
 volumeSlider.addEventListener("input", function () {
 	video.volume = this.value / 100;
-	volumeDisplay.textContent = video.volume.toFixed(2);
+	volumeDisplay.textContent = video.volume.toFixed(2) + "%";
 });
 
 // old school & original option
